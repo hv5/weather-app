@@ -24,7 +24,7 @@ var server = http.createServer(function(req, resp) {
             return;
         }
 
-        resp.write("<html><body style=\"background-color:#1a5276; color:yellow\">");
+        resp.write("<html><body style=\"background-color:#1a5276; color:white\">");
 
         // City header
         resp.write("<div>");
