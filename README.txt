@@ -1,6 +1,5 @@
 Prerequsites
 -------------
-
 1) Install nodejs v8.12.0 from https://nodejs.org/en/download/
 2) Install Visual Studio Code from https://code.visualstudio.com/Download
 
