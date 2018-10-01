@@ -71,36 +71,46 @@ var server = http.createServer(function(req, resp) {
         // Response header
         resp.setHeader('Content-Type', 'text/html');
 
-        // Response body
-        resp.write("<html><body style=\"background-color:#1a5276; color:white\">");
+        // Application name, etc
+        resp.write('<html>');
+        resp.write('<title>AXDM EXPD Tutorial</title>');
+        resp.write('<meta name="viewport" content="width=device-width, initial-scale=1">');
+        resp.write('<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">');
+        resp.write('<body>');
 
         // City header
-        resp.write("<div>");
-        resp.write("<p style=\"margin:8px; font-size:36px\">" + data.name + "&nbsp");
-        resp.write("<span style=\"font-size:16px\">" + data.sys.country) + "</span>"
-        resp.write("</p>");
-        resp.write("<hr>");
-        resp.write("</div>");
+        resp.write('<div class="w3-container w3-indigo">');
+        resp.write('<p style="margin:8px; font-size:36px">' + data.name + '&nbsp');
+        resp.write('<span style="font-size:16px">' + data.sys.country + '</span>');
+        resp.write('</p>');
+        resp.write('</div>');
 
-        // Weather details
-        resp.write("<div style=\"margin:20px\">");
-        resp.write("<p style=\"font-size:64px; margin:0px\">" + Math.round(data.main.temp) + "&#176" + "</p>");
-        resp.write("<p style=\"font-size:24px; margin:0px\">" + (data.weather[0].description).toUpperCase() + "</p>");
-        
-        resp.write("<p>" + 'Wind: ' + data.wind.speed + " m/s" + "</p>");
-        resp.write("<p>" + 'Pressure: ' + data.main.pressure + " mbar" + "</p>");
-        resp.write("<p>" + 'Humidity: ' + data.main.humidity + " %" + "</p>");
-        
-        resp.write("</div>");
+        // Temperatur, weather symbol and description
+        resp.write('<div class="w3-container w3-blue">');
+        resp.write('<p style="font-size:64px; margin:0px">' + Math.round(data.main.temp) + '&#176' + '</p>');
+        resp.write('<img src="http://api.openweathermap.org/img/w/' + data.weather[0].icon + '.png' + '">');
+        resp.write('<span style="font-size:20px; margin:8px">' + (data.weather[0].description).toUpperCase() + '</span>');
+        resp.write('</div>');
 
-        resp.write("<hr>");
-        resp.write("<p style=\"font-size:10px\">" + '(' + req.headers.host + ')' + "</p>");
+        // Other meaures
+        resp.write('<div class="w3-container w3-blue">');
+        resp.write('<p style="margin-left:8px">');
+        resp.write('Wind: ' + data.wind.speed + ' m/s' + '<br>');
+        resp.write('Pressure: ' + data.main.pressure + ' mbar' + '<br>');
+        resp.write('Humidity: ' + data.main.humidity + ' %' + '<br>');
+        resp.write('</p>');
+        resp.write('</div>');
 
-        resp.write("</body></html>");
-        
+        // Host where application runs
+        resp.write('<div class="w3-container">');
+        resp.write('<p style="font-size:10px; text-align:right">' + 'Run from ' + req.headers.host + '</p>');
+        resp.write('</div>');
+
+        resp.write("</body>");
+        resp.write("</html>");
+
         resp.end();
-    });  
-    
+    });   
 });
 
 port = process.env.PORT || 3000;
