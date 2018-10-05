@@ -31,7 +31,7 @@ var server = http.createServer(function(req, resp) {
 
         // Application name, etc
         resp.write('<html>');
-        resp.write('<title>AXDM EXPD Tutorial</title>');
+        resp.write('<title>Demo App</title>');
         resp.write('<meta name="viewport" content="width=device-width, initial-scale=1">');
         resp.write('<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">');
         resp.write('<body>');

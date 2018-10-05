@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "demo app",
   "author": "",
+  "scripts": {
+    "start": "node index.js"
+  },
   "license": "ISC",
   "dependencies": {
     "request": "^2.88.0"
